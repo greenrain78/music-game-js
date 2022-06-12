@@ -3,5 +3,14 @@ html, body {
     height: 100%;
     margin: 0px;
     padding: 0px;
+
+    overflow: hidden;
+    /* 글자나 그런게 넘치는 경우 스크롤 말고 걍 안보이게 설정 */
+    touch-action: none;
+    /*  브라우저에게 맡길 터치 액션을 모두 없앤다. */
   }
   
+body {
+    background-color: #c5beaf;
+
+}
