@@ -1,0 +1,109 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+body 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* 위 패딩인듯 */
+    background: #27282c;
+    flex-direction: column;
+    gap: 60px;
+}
+
+a
+{
+    position: relative;
+    background: #444;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase; 
+    /* 대문자로 */
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    /* 글자간 간격 */
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+a:hover
+/* 마우스 올렸을시 */
+{
+    letter-spacing: 0.25em;
+    /* 좌우로 늘어나는 에니메이션 */
+    background: var(--clr);
+    /* 선 색깔 변경 --clr 참조 */
+    color: var(--clr);
+    /* 글자색 변경 */
+    box-shadow: 0 0 35px var(--clr);
+    /* 그림자지만 발광효과 같네 */
+}
+a::before
+{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #27282c;
+    /* 선처럼 보이기 위해서 배경 칠한듯 */
+}
+ a span
+ {
+    position: relative;
+    z-index: 1;
+    /* 글자는 보이게 */
+ }
+ a i
+ {
+    position: absolute;
+    inset: 0;
+    display: block;
+ }
+ a i::before
+ {
+    content: '';
+    position: absolute;
+    top: -3.5px;
+    left: 80%;
+    width: 10px;
+    height: 5px;
+    border: 2px solid var(--clr);
+    background: #27282c;
+    /* 선처럼 보이기 위해서 배경 칠한듯 */
+    transform: translateX(-50%);
+    transition: 0.5s;
+ }
+ 
+
+a:hover i::before
+{
+   left: 20%;
+   width: 20px;
+
+}
+a i::after
+{
+   content: '';
+   position: absolute;
+   bottom: -3.5px;
+   left: 20%;
+   width: 10px;
+   height: 5px;
+   border: 2px solid var(--clr);
+   background: #27282c;
+   /* 선처럼 보이기 위해서 배경 칠한듯 */
+   transition: 0.5s;
+}
+
+
+a:hover i::after
+{
+  left: 80%;
+  width: 20px;
+
+}
