@@ -1,9 +1,9 @@
-// Create a class for the element
+
 class Square extends HTMLElement {
   // Specify observed attributes so that
   // attributeChangedCallback will work
   static get observedAttributes() {
-    return ['c', 'l'];
+    return ['height', 'width'];
   }
 
   constructor() {
@@ -12,10 +12,23 @@ class Square extends HTMLElement {
 
     const shadow = this.attachShadow({mode: 'open'});
 
+
+  }
+  createElement(){
     const div = document.createElement('div');
     const style = document.createElement('style');
     shadow.appendChild(style);
     shadow.appendChild(div);
+  }
+  updateStyle(elem){
+    const shadow = elem.shadowRoot;
+  shadow.querySelector('style').textContent = `
+    div {
+      width: ${elem.getAttribute('l')}px;
+      height: ${elem.getAttribute('l')}px;
+      background-color: ${elem.getAttribute('c')};
+    }
+  `;
   }
 
   connectedCallback() {
@@ -33,24 +46,15 @@ class Square extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     console.log('Custom square element attributes changed.');
-        console.log(name + " " + oldValue + " " + newValue)
-
+    console.log(name + " " + oldValue + " " + newValue)
     updateStyle(this);
   }
 }
 
+
+
 customElements.define('custom-square', Square);
 
-function updateStyle(elem) {
-  const shadow = elem.shadowRoot;
-  shadow.querySelector('style').textContent = `
-    div {
-      width: ${elem.getAttribute('l')}px;
-      height: ${elem.getAttribute('l')}px;
-      background-color: ${elem.getAttribute('c')};
-    }
-  `;
-}
 
 const add = document.querySelector('.add');
 const update = document.querySelector('.update');

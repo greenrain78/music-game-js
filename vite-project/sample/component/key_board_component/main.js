@@ -10,17 +10,20 @@ class Square extends HTMLElement {
     // Always call super first in constructor
     super();
 
-    const shadow = this.attachShadow({mode: 'open'});
+    this.shadow = this.attachShadow({mode: 'open'});
 
+    this.createElement();
+  }
+  createElement()  {
     const div = document.createElement('div');
     const style = document.createElement('style');
-    shadow.appendChild(style);
-    shadow.appendChild(div);
+    this.shadow.appendChild(style);
+    this.shadow.appendChild(div);
   }
 
   connectedCallback() {
-    console.log('Custom square element added to page.');
-    updateStyle(this);
+    console.log('Custom square element added to page.1111');
+    this.updateStyle(this);
   }
 
   disconnectedCallback() {
@@ -35,15 +38,10 @@ class Square extends HTMLElement {
     console.log('Custom square element attributes changed.');
         console.log(name + " " + oldValue + " " + newValue)
 
-    updateStyle(this);
+    this.updateStyle(this);
   }
-}
-
-customElements.define('custom-square', Square);
-
-function updateStyle(elem) {
-  const shadow = elem.shadowRoot;
-  shadow.querySelector('style').textContent = `
+  updateStyle(elem) {
+  this.shadow.querySelector('style').textContent = `
     div {
       width: ${elem.getAttribute('l')}px;
       height: ${elem.getAttribute('l')}px;
@@ -51,14 +49,15 @@ function updateStyle(elem) {
     }
   `;
 }
+}
+
+customElements.define('custom-square', Square);
 
 const add = document.querySelector('.add');
 const update = document.querySelector('.update');
 const remove = document.querySelector('.remove');
 let square;
 
-update.disabled = true;
-remove.disabled = true;
 
 function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
