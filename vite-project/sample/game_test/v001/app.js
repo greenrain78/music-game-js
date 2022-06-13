@@ -5,12 +5,9 @@ class App {
         window.addEventListener('resize', this.resize.bind(this), false)
         this.resize();
 
-        this.ball = new Ball(this.stageWidth, this.stageHeight, 60, 15);
-        this.block = new Block(700, 30, 300, 450);
-        this.player = new Player(this.stageWidth, this.stageHeight, 60, 15)
+        // 오브젝트 생성
 
         window.requestAnimationFrame(this.animate.bind(this));
-
         this.windowEvent();
     }
     init_element(){
