@@ -4,6 +4,7 @@ import {KeyBoardKey} from "./key_board_key"
 class KeyBorad extends HTMLElement {
   // Specify observed attributes so that
   // attributeChangedCallback will work
+  key_list = ['a', 's', 'd', 'j', 'k', 'l']
   static get observedAttributes() {
     return ['height', 'width'];
   }
@@ -12,17 +13,22 @@ class KeyBorad extends HTMLElement {
     // Always call super first in constructor
     super();
     this.shadow = this.attachShadow({mode: 'open'});
+
+    this.key_components = this.key_list.map(key => new KeyBoardKey(key))
+
     this.createElement();
     this.setStyle();
   }
   createElement()  {
     const key_board_body = document.createElement('div');
-    key_board_body.setAttribute("class", "key_board");
+    key_board_body.setAttribute("class", "board");
+    
 
-    this.key_list = new KeyBoardKey('A');
-    // 여기서 인자를 줬는데 안넘어감
-    key_board_body.appendChild(this.key_list.elements);
-
+    // key_board_body.appendChild(this.key_components.elements);
+    for (var key_ele of this.key_components.map(key => key.elements)) {
+      key_board_body.appendChild(key_ele);
+    }
+   
     const style = document.createElement('style');
     this.shadow.appendChild(style);
     this.shadow.appendChild(key_board_body);
@@ -37,7 +43,7 @@ class KeyBorad extends HTMLElement {
         // Apply external styles to the shadow dom
     const linkElem = document.createElement('link');
     linkElem.setAttribute('rel', 'stylesheet');
-    linkElem.setAttribute('href', 'style.css');
+    linkElem.setAttribute('href', 'component/keyboard/keyboard.css');
 
     // Attach the created elements to the shadow dom
     this.shadow.appendChild(linkElem);

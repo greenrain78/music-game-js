@@ -11,13 +11,13 @@ span {
       -ms-user-select: none;
           user-select: none;
 }
-div[class~='keyboard'] {
+div[class~='board'] {
+  justify-content: space-around;
   border-radius: 10px;
   background: #272B2C;
   display: flex;
   width: 700px;
   height: auto;
-  flex-direction: column;
   padding: 30px 15px;
   box-shadow: 0px 40px 45px rgba(0, 0, 0, .4);
 }
