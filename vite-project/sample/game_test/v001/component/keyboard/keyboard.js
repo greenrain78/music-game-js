@@ -1,10 +1,12 @@
 import {KeyBoardKey} from "./key_board_key"
+import { keyList } from "../../core/store/input_store";
+
 
 // Create a class for the element
 class KeyBorad extends HTMLElement {
   // Specify observed attributes so that
   // attributeChangedCallback will work
-  key_list = ['a', 's', 'd', 'j', 'k', 'l']
+  key_list = keyList
   static get observedAttributes() {
     return ['height', 'width'];
   }

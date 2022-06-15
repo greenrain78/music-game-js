@@ -1,3 +1,6 @@
+import { getState, subscribe } from "../../core/observer";
+import { keyStateList } from "../../core/store/input_store";
+import { TestBoard } from "./test_board";
 
 // Create a class for the element
 class GameWorld extends HTMLElement {
@@ -11,21 +14,47 @@ class GameWorld extends HTMLElement {
   constructor() {
     // Always call super first in constructor
     super();
+    // 오브젝트 생성
+    this.test_board = new TestBoard();
+    // 엘리먼트 생성
     this.shadow = this.attachShadow({mode: 'open'});
-
     this.createElement();
+    // 스타일 생성
     this.setStyle();
+    // 이벤트 등록
+    this.eventAction();
   }
+  eventAction(){
+    for (var keyName of keyStateList) {
+      subscribe(keyName, this.render.bind(this, keyName));
+    }
+   
+
+  }
+  render(keyName) {
+    
+    const keyState = getState(keyName); //Model의 상태를 가져와서 렌더링
+    const text1 = this.game_world.getElementsByTagName('h1')[0];
+    text1.textContent = `${keyName} => ${keyState}`;
+    this.test_board.reaction(keyName, keyState)
+
+  }
+
+
+
+  
   createElement()  {
 
-    const game_world = document.createElement('div');
-    game_world.setAttribute("class", "game_world");
-    game_world.appendChild(text1)
+    this.game_world = document.createElement('div');
+    this.game_world.setAttribute("class", "game_world");
     
     const text1 = document.createElement('h1');
     text1.textContent = "게임 화면";
-
-    this.shadow.appendChild(key_board_body);
+    this.game_world.appendChild(text1)
+    this.game_world.appendChild(this.test_board.elements)
+    
+    
+    this.shadow.appendChild(this.game_world);
   }
 
   attributeChangedCallback(name, oldValue, newValue) {

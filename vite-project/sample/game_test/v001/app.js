@@ -1,3 +1,4 @@
+import { WindowEvent } from "./core/window/event";
 
 class App {
     constructor() {
@@ -16,14 +17,15 @@ class App {
         this.main_container.a
     }
     windowEvent() {
-    // 키보드 누른 경우
-        var player_key = ['w', 'a','s','d']
-        window.addEventListener("keydown", (e) => {
-            if (player_key.includes(e.key)) {
-                this.player.move(e.key);
-            };
-            console.log(e.key);
-        });
+      this.window_evnet_controller = new WindowEvent();
+    // // 키보드 누른 경우
+    //     var player_key = ['w', 'a','s','d']
+    //     window.addEventListener("keydown", (e) => {
+    //         if (player_key.includes(e.key)) {
+    //             this.player.move(e.key);
+    //         };
+    //         console.log(e.key);
+    //     });
     }
 
     resize() {

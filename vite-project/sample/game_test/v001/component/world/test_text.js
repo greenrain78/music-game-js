@@ -1,8 +1,7 @@
-import { setState } from "../../core/observer";
 
 
 // Create a class for the element
-export class KeyBoardKey {
+export class TestText {
   
   constructor(word) {
     // 변수 할당
@@ -39,25 +38,11 @@ export class KeyBoardKey {
   }
   eventListener()  {
     this.elements.addEventListener("click", this.handleClick.bind(this));
-    this.elements.addEventListener("touchstart", this.handleTouchstart.bind(this));
-    // this.elements.addEventListener("touchmove", this.handleTouchmove.bind(this));
-    this.elements.addEventListener("touchend", this.handleTouchend.bind(this));
 
   }
   handleClick({ target }) {
+    console.log("속성이 뭔데  " + target.tagName);
     this.setKeyState('click'); // 상태변경
   }
-  handleTouchstart({ target }) {
-    this.setKeyState('touchstart'); // 상태변경
-  }
-  handleTouchmove({ target }) {
-    // 버튼 밖으로 드래그해도 계속 발생
-    // 드래그 시작점이 버튼 안이면 발생
-    this.setKeyState('touchmove'); // 상태변경
-  }
-  handleTouchend({ target }) {
-    this.setKeyState('touchend'); // 상태변경
-  }
-  
 }
 
