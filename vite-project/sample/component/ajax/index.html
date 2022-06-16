@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>audio play</title>
+    <style>
+      custom-square {
+        margin: 20px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1>ajax</h1>
+
+    <input type="button" value="ajax 테스트" id="ajax_btn">
+<script>
+    var btn = document.getElementById("ajax_btn");
+
+    btn.addEventListener("click", () => {
+        //XMLHttpRequest 객체 생성
+        var xhr = new XMLHttpRequest();
+
+        //요청을 보낼 방식, 주소, 비동기여부 설정
+        xhr.open('GET', 'http://greenrain01.kro.kr:8000/', true);
+
+        //요청 전송
+        xhr.send();
+
+        //통신후 작업
+        xhr.onload = () => {
+            //통신 성공
+            if (xhr.status == 200) {
+                console.log(xhr.response);
+                console.log("통신 성공");
+            } else {
+                //통신 실패
+                console.log("통신 실패");
+            }
+        }
+    });
+</script>
+출처: https://teserre.tistory.com/7 [테서르:티스토리]
+<!--   <video id="video" width="320" height="240"></video> -->
+<!--         <script src="main.js"></script> -->
+
+  </body>
+</html>
