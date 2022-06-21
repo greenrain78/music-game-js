@@ -1,5 +1,6 @@
 import { getState, subscribe } from "../../core/observer";
 import { keyStateList } from "../../core/store/input_store";
+import { NodeController } from "../music_node/node_controller";
 import { TestBoard } from "./test_board";
 
 // Create a class for the element
@@ -16,6 +17,7 @@ class GameWorld extends HTMLElement {
     super();
     // 오브젝트 생성
     this.test_board = new TestBoard();
+    this.node_controller = new NodeController();
     // 엘리먼트 생성
     this.shadow = this.attachShadow({mode: 'open'});
     this.createElement();

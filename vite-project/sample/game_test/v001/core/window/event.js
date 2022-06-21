@@ -20,17 +20,17 @@ export class WindowEvent {
       window.addEventListener("keydown", (e) => {
         // 왜 false만 뜨냐
         // if (this.keyAction.has(e.key)) {
-          this.keyAction[e.key]('keydown');
+          this.keyAction[e.key.toLowerCase()]('keydown');
         // }
       });
       window.addEventListener("keyup", (e) => {
         // if (this.keyAction.has(e.key)) {
-          this.keyAction[e.key]('keyup');
+          this.keyAction[e.key.toLowerCase() ]('keyup');
         // }
       });
       window.addEventListener("keypress", (e) => {
         // if (this.keyAction.has(e.key)) {
-          this.keyAction[e.key]('keypress');
+          this.keyAction[e.key.toLowerCase() ]('keypress');
         // }
       });
     }
