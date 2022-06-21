@@ -1,0 +1,52 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    overflow: hidden;
+    /* 글자나 그런게 넘치는 경우 스크롤 말고 걍 안보이게 설정 */
+    touch-action: none;
+  
+    /*  브라우저에게 맡길 터치 액션을 모두 없앤다. */
+  }
+  
+body {
+    background-color: #c5beaf;
+
+}
+#main_container{
+	display: grid;
+      width: 100%;
+    height: 100%;
+  position: absolute;
+
+}
+#game_container{
+
+}
+game-world{
+  width: 100%;
+  height: 100%;
+    z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  
+  display: grid;
+  align-items: start;
+  justify-content: center;
+}
+#keyboard_container{
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  display: grid;
+  align-items: end;
+/*   justify-content: center; */
+}
+key-board{
+  
+}
