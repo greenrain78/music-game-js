@@ -13,13 +13,12 @@ span {
 }
 div[class~='board'] {
   justify-content: space-around;
-  border-radius: 10px;
-  background: #272B2C;
+  border-radius: 50px;
+  background: rgba(229, 243, 254, .3);
   display: flex;
-  width: 700px;
+  width: 100%;
   height: auto;
   padding: 30px 15px;
-  box-shadow: 0px 40px 45px rgba(0, 0, 0, .4);
 }
 /*   *=    ==  contain 포함하다 */
 
