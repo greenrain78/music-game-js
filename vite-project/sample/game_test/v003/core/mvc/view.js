@@ -7,7 +7,7 @@ export default class HTMLView {
 	}
 
 	template = (state) => {
-		return `<div>${state.value}</div>`
+		return `<div>template 오버라이팅 안됨 - ${state}</div>`
 	}
 
 	render = (state) => {
