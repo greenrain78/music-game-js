@@ -6,9 +6,9 @@ import Model from "./model";
 
 
 // Create a class for the element
-class BackGround extends WebComponent {
+class JudgmentLine extends WebComponent {
   constructor() {
-		super();
+		super('component/judgment_line');
     this.init()
 	}
   
@@ -20,4 +20,4 @@ class BackGround extends WebComponent {
 
 }
 
-customElements.define('back-ground', BackGround);
+customElements.define('judgment-line', JudgmentLine);

@@ -8,7 +8,7 @@ import Model from "./model";
 // Create a class for the element
 class BackGround extends WebComponent {
   constructor() {
-		super();
+		super('component/background');
     this.init()
 	}
   
