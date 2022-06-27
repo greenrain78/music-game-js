@@ -17,9 +17,6 @@ export default class BackGroundController extends Controller {
   }
   handleClick( event ) {
     // console.log("click", event)
-    // console.log("click", event.target)
-    // console.log("click", this)
-
   }
   
   handleTouchstart(event) {
