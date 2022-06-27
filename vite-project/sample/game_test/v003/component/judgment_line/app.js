@@ -1,5 +1,5 @@
 import WebComponent from "../../core/web_component";
-import Controller from "../../core/mvc/controller";
+import Controller from "./controller";
 import View from "./view";
 import Model from "./model";
 
@@ -13,10 +13,14 @@ class JudgmentLine extends WebComponent {
 	}
   
  	init = () => {
-    this.model = new Model({ value : 'this is header'});
+    this.model = new Model({ 
+      value : 'this is header',
+      touches : [],
+    });
     this.view = new View('#root-body', this.shadow);
     this.component = new Controller('#root-body', this.model, this.view)
   }
+
 
 }
 

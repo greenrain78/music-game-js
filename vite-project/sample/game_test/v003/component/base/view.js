@@ -6,4 +6,6 @@ export default class BackGroundView extends View {
 		return `
 <div id="base">base 대충해</div>
   `}
+  initEvent = () => {
+	}
 }

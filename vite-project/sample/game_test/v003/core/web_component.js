@@ -17,7 +17,6 @@ export default class WebComponent extends HTMLElement {
     const body = document.createElement('div');
     body.setAttribute("id", "root-body");
 
-    console.log(this.project_path)
     // css 파일 로드 및 적용
     const linkElem = document.createElement('link');
     linkElem.setAttribute('rel', 'stylesheet');

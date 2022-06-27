@@ -1,4 +1,4 @@
-export default class HTMLView {
+export default class View {
 	_target;
 
 	constructor(target, root_dom = document) {

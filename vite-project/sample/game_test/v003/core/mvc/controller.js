@@ -10,7 +10,7 @@ export default class Controller {
 
 		this.init();
 		this.render(this._model.get());
-		this.initEvents();
+		this.$target = this._view._target
 		this.initChildren(); // 자식 컴포넌트 생성 및 랜더
 	}
 
@@ -36,12 +36,12 @@ export default class Controller {
   //   });
   }
   addEvent (eventType, selector, callback) {
-    const children = [ ...this.$target.querySelectorAll(selector) ]; 
+    const children = [ ...this.$target().querySelectorAll(selector) ]; 
     // selector에 명시한 것 보다 더 하위 요소가 선택되는 경우가 있을 땐
     // closest를 이용하여 처리한다.
     const isTarget = (target) => children.includes(target)
                                  || target.closest(selector);
-    this.$target.addEventListener(eventType, event => {
+    this.$target().addEventListener(eventType, event => {
       if (!isTarget(event.target)) return false;
       callback(event);
     })
