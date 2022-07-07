@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> 
+  
+    <title>게임 v001</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+      
+
+<!-- Background -->
+  <div class="container" style="--z:1;">
+    <back-ground></back-ground>
+  </div>
+
+<!--   게임 화면 -->
+  <div class="container" style="--z:2;">
+    <game-world></game-world>
+  </div>
+
+<!-- UI -->
+  <div class="container" style="--z:3;">
+    <button-area></button-area>
+  </div>
+
+<!--   키보드 -->
+  <div class="container" style="--z:4;">
+    <judgment-line></judgment-line>
+    <key-board></key-board>
+  </div>
+  
+    
+<!--  라이브러리  -->
+  <script src="lib/anime.js"></script>
+<!--  아래는 js 코드들  -->
+  <script type="module" src="component/background/app.js"></script>
+  <script type="module" src="component/judgment_line/app.js"></script>
+
+</body>
+
+</html>
