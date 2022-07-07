@@ -1,0 +1,14 @@
+/* 기본 설정 */
+* { 
+  width: 100%;
+  height: 100%;
+  margin: 0; 
+  padding: 0; 
+}
+#root-body {
+/*  무조건 전체화면  */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+    
+}
